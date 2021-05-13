@@ -1,3 +1,8 @@
+#
+#
+# if running on commandline:
+# PYTHONPATH=.. python3 ledtools_test.py
+
 import time
 
 import fake_neopixel as neopixel
@@ -12,6 +17,8 @@ leds[2] = (0xef,0xef,0xef)
 leds.show()
 print("leds[3]=",leds[3], ", leds len:",len(leds))
 
+#ledtools.flooby(leds, won=1,too='hahha')
+#f = ledtools.make_flooby(leds, won='abc', too='def')
 
 #leds[0:] = [(99,88,77) for l in leds]
 #leds[0:] = [[max(i-5,0) for i in l] for l in leds]

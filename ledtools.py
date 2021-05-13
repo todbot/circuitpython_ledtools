@@ -1,4 +1,9 @@
-
+#
+# ledtools.py -- some tools to play with NeoPixels or similar on CircuitPython
+#
+# https://github.com/todbot/circuitpython_ledtools
+# 2021 - @todbot / Tod Kurt - 
+#
 
 class LEDAnimator:
     def __init__(self,func, *args):
@@ -34,7 +39,15 @@ class LEDTools:
             leds.fill(color2)
         else:
             leds.fill(color1)
-        
+
+
+    def make_flooby(*args,**kwargs):
+        return LEDAnimator(LEDTools.flooby(args,**kwargs))
+                           
+    def flooby(leds, won=0, too='no'):
+        leds[0] = (11,22,33)
+        print("flooby:",won,"/",too)
+
     def fade_to_black(leds, by=1):
         leds[0:] = [[max(i-by,0) for i in l] for l in leds]
 

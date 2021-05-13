@@ -1,3 +1,9 @@
+#
+# fake_neopixel.py -- pure-python "fake" neopixel to test neopixel algorithms on computers
+#
+# https://github.com/todbot/circuitpython_ledtools
+# 2021 - @todbot / Tod Kurt - 
+#
 
 import math
 
