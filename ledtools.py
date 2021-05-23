@@ -15,9 +15,10 @@ def hsv2rgb(h, s, v):
     Converts an integer HSV (value range from 0 to 255) to an RGB tuple 
     """
     if s == 0: return v, v, v
-    h = h/255
-    s = s/255
-    v = v/255
+    # Wrap values within range, scale to 0-1
+    h = (h % 0xFF) / 255
+    s = (s % 0xFF) / 255
+    v = (v % 0xFF) / 255
     i = int(h * 6.0)  # XXX assume int() truncates!
     f = (h * 6.0) - i
     p = v * (1.0 - s)
@@ -43,7 +44,9 @@ def hsv2rgb_int(H,S,V):
     '''
     # Check if the color is Grayscale
     if S == 0: return (V,V,V)
-
+    # Wrap values within range
+    H,S,V = H % 0xFF, S % 0xFF, V % 0xFF
+    
     # Make hue 0-5 region
     region = H // 43;
 
@@ -82,7 +85,7 @@ def make_blinker(leds, speed, color1, color2):
         blink(leds, color1,color2)
     return update
 
-def blink(leds, colorA,colorB):
+def blink(leds, colorA, colorB):
     cA = color_int_to_tuple(colorA)
     cB = color_int_to_tuple(colorB)
     c = leds[0]
