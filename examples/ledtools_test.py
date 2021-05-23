@@ -17,11 +17,13 @@ leds[2] = (0xef,0xef,0xef)
 leds.show()
 print("leds[3]=",leds[3], ", leds len:",len(leds))
 
-#ledtools.flooby(leds, won=1,too='hahha')
-#f = ledtools.make_flooby(leds, won='abc', too='def')
-
 #leds[0:] = [(99,88,77) for l in leds]
 #leds[0:] = [[max(i-5,0) for i in l] for l in leds]
+
+h,s,v = (0,255,255)
+r,g,b = ledtools.hsv2rgb(h,s,v)
+print("hsv:%02x %02x %02x => rgb:%02x %02x %02x" % (h,s,v, r,g,b))
+
 
 while True:
     #ledtools.fade_to_black(leds, by=5)
