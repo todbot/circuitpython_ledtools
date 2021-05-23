@@ -107,7 +107,8 @@ class LEDTools:
 
 
     # stolen from     
-    # https://github.com/wntrblm/Sol/blob/master/firmware/winterbloom_sol/_utils.py    
+    # https://github.com/wntrblm/Sol/blob/master/firmware/winterbloom_sol/_utils.py
+    # and converted to 0-255 use
     def hsv_to_rgb(h, s, v):
         """ 
         Convert H,S,V in 0-255,0-255,0-255 format
