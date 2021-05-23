@@ -82,13 +82,14 @@ def make_blinker(leds, speed, color1, color2):
         blink(leds, color1,color2)
     return update
 
-def blink(leds, color1,color2):
-    color1 = color_int_to_tuple(color1)
-    color2 = color_int_to_tuple(color2)
-    if leds[0] == color1:
-        leds.fill(color2)
+def blink(leds, colorA,colorB):
+    cA = color_int_to_tuple(colorA)
+    cB = color_int_to_tuple(colorB)
+    c = leds[0]
+    if c[0] == cA[0] and c[1] == cA[1] and c[2] == cA[2]:
+        leds.fill(cB)
     else:
-        leds.fill(color1)
+        leds.fill(cA)
 
 def fade_to_black(leds, by=1):
     leds[0:] = [[max(i-by,0) for i in l] for l in leds]
