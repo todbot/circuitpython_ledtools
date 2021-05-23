@@ -79,6 +79,10 @@ class LEDTools:
             pass
         
     def hsv2rgb(h, s, v):
+        """ 
+        Convert H,S,V in 0-255,0-255,0-255 format
+        to R,G,B in 0-255,0-255,0-255 format
+        """
         import math
         h = h/255
         s = s/255
